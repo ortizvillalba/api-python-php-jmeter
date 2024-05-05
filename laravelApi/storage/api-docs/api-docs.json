@@ -1,0 +1,656 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Usuarios",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8001"
+        }
+    ],
+    "paths": {
+        "/api/alumnos": {
+            "get": {
+                "summary": "Mostrar todos los alumnos",
+                "operationId": "52ca0d8dad6b04f9c7e3f43eca221f9d",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los alumnos."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Crear un nuevo alumno",
+                "operationId": "e9e77b336781c9f8e41e532fef3fb69d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "edad",
+                                    "correo",
+                                    "direccion",
+                                    "telefono"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "edad": {
+                                        "type": "integer"
+                                    },
+                                    "correo": {
+                                        "type": "string"
+                                    },
+                                    "direccion": {
+                                        "type": "string"
+                                    },
+                                    "telefono": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Alumno creado exitosamente"
+                    },
+                    "422": {
+                        "description": "Error de validación"
+                    }
+                }
+            }
+        },
+        "/api/alumnos/{id}": {
+            "get": {
+                "summary": "Mostrar detalle de un alumno",
+                "operationId": "f3ed84cbc12195084fe314f4c055c40e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del alumno",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar detalle de un alumno."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar un alumno existente",
+                "operationId": "bfa9cf00f2ef20fc3e4a526ba0ca66a5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del alumno a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "edad",
+                                    "correo",
+                                    "direccion",
+                                    "telefono"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "edad": {
+                                        "type": "integer"
+                                    },
+                                    "correo": {
+                                        "type": "string"
+                                    },
+                                    "direccion": {
+                                        "type": "string"
+                                    },
+                                    "telefono": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Alumno actualizado exitosamente"
+                    },
+                    "404": {
+                        "description": "Alumno no encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar un alumno existente",
+                "operationId": "6c6ef9d7128996dfd0ee5c79ba9e4bbc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del alumno",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Alumno eliminado exitosamente."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/clases": {
+            "get": {
+                "summary": "Mostrar todas las clases",
+                "operationId": "76c69e6ee191fda1eedf28939185164c",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las clases."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Crear una nueva clase",
+                "operationId": "08f52b0769f2579670c099b7af02d48d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "descripcion",
+                                    "profesor",
+                                    "horario",
+                                    "sala"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "descripcion": {
+                                        "type": "string"
+                                    },
+                                    "profesor": {
+                                        "type": "string"
+                                    },
+                                    "horario": {
+                                        "type": "string"
+                                    },
+                                    "sala": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Clase creada exitosamente"
+                    },
+                    "422": {
+                        "description": "Error de validación"
+                    }
+                }
+            }
+        },
+        "/api/clases/{id}": {
+            "get": {
+                "summary": "Mostrar detalle de una clase",
+                "operationId": "c344051bd6bda4ed0921a254a1e7c1a6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la clase",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar detalle de una clase."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar una clase existente",
+                "operationId": "f5bc47f1f5beebb7b86a7405f0650057",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la clase a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "descripcion",
+                                    "profesor",
+                                    "horario",
+                                    "sala"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "descripcion": {
+                                        "type": "string"
+                                    },
+                                    "profesor": {
+                                        "type": "string"
+                                    },
+                                    "horario": {
+                                        "type": "string"
+                                    },
+                                    "sala": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Clase actualizada exitosamente"
+                    },
+                    "404": {
+                        "description": "Clase no encontrada"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar una clase existente",
+                "operationId": "b4b15e14f4f977244204194dd1425d40",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la clase",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Clase eliminada exitosamente."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/inscripciones": {
+            "get": {
+                "summary": "Mostrar todas las inscripciones",
+                "operationId": "32430190a83b3e7d02fd0b80ff16641f",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las inscripciones."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Crear una nueva inscripción",
+                "operationId": "be6247395db6a4f769454770d4c58d03",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "alumno_id",
+                                    "clase_id",
+                                    "materia_id",
+                                    "estado_pago"
+                                ],
+                                "properties": {
+                                    "alumno_id": {
+                                        "type": "integer"
+                                    },
+                                    "clase_id": {
+                                        "type": "integer"
+                                    },
+                                    "materia_id": {
+                                        "type": "integer"
+                                    },
+                                    "estado_pago": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Inscripción creada exitosamente"
+                    },
+                    "422": {
+                        "description": "Error de validación"
+                    }
+                }
+            }
+        },
+        "/api/inscripciones/{id}": {
+            "get": {
+                "summary": "Mostrar detalle de una inscripción",
+                "operationId": "b4666d48f6ff278358ab8b6da9e61464",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la inscripción",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar detalle de una inscripción."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar una inscripción existente",
+                "operationId": "ba064dcee1714f45ba894b148f20757f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la inscripción a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "alumno_id",
+                                    "clase_id",
+                                    "materia_id",
+                                    "estado_pago"
+                                ],
+                                "properties": {
+                                    "alumno_id": {
+                                        "type": "integer"
+                                    },
+                                    "clase_id": {
+                                        "type": "integer"
+                                    },
+                                    "materia_id": {
+                                        "type": "integer"
+                                    },
+                                    "estado_pago": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Inscripción actualizada exitosamente"
+                    },
+                    "404": {
+                        "description": "Inscripción no encontrada"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar una inscripción existente",
+                "operationId": "bfdeb5bc6dc0090e3f0b828f5671c055",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la inscripción",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Inscripción eliminada exitosamente."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/materias": {
+            "get": {
+                "summary": "Mostrar todas las materias",
+                "operationId": "918cb2607842cfe87ff9f6796c4cc540",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las materias."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Crear una nueva materia",
+                "operationId": "6d2751d41fdddb317afd753ab2d78f1e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "nivel"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "nivel": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Materia creada exitosamente"
+                    },
+                    "422": {
+                        "description": "Error de validación"
+                    }
+                }
+            }
+        },
+        "/api/materias/{id}": {
+            "get": {
+                "summary": "Mostrar detalle de una materia",
+                "operationId": "808b887ba424ec0048dbd9a11aa22ffe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la materia",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar detalle de una materia."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar una materia existente",
+                "operationId": "b2823e9405096afc917077879051c33e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la materia a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "nivel"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "nivel": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Materia actualizada exitosamente"
+                    },
+                    "404": {
+                        "description": "Materia no encontrada"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar una materia existente",
+                "operationId": "aa3b33b4b37a772aa16e47d56f319567",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la materia",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Materia eliminada exitosamente."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "summary": "Mostrar usuarios",
+                "operationId": "c457726701591d1183b53aa71fc13441",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los usuarios."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        }
+    }
+}
